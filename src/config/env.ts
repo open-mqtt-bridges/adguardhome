@@ -26,7 +26,7 @@ export const ENV = cleanEnv(process.env, {
 	ADGUARD_USERNAME: str({ desc: 'Adguard Home username' }),
 	ADGUARD_PASSWORD: str({ desc: 'Adguard Home password' }),
 	// config
-	ADGUARD_TOPIC: str({ default: 'adguard', desc: 'Base MQTT topic for Adguard Home' }),
+	ADGUARD_TOPIC: str({ default: 'adguard', desc: 'MQTT topic prefix for Adguard Home messages' }),
 	ADGUARD_POLL_INTERVAL: num({
 		default: 1000,
 		desc: 'Polling interval in ms for Adguard Home. Set to 0 to disable polling.',
