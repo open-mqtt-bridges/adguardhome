@@ -1,6 +1,6 @@
 {
   "name": "adguard-mqtt-bridge",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A lightweight Node.js service that connects your AdguardHome with MQTT.",
   "keywords": [
     "adguardhome",
