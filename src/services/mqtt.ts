@@ -10,7 +10,7 @@ export const mqttClient = mqtt.connect(
 		port: ENV.MQTT_PORT,
 		username: ENV.MQTT_USERNAME,
 		password: ENV.MQTT_PASSWORD,
-		rejectUnauthorized: false,
+		rejectUnauthorized: true,
 		clean: false,
 
 		will: {

@@ -6,7 +6,10 @@ The manifest, owning lockfile and existing CI define the toolchain. Use `Yarn cl
 
 - `yarn install --frozen-lockfile`
 - `yarn build`
+- `yarn test`
 - `yarn bundle`
+
+`yarn test` builds the service and runs Node's transport regression tests. OpenSSL must be available on the development machine; the Docker build stage installs it. Tests generate temporary CA/server certificates and private keys, start loopback-only MQTT servers, and load the actual compiled service in isolated child processes with synthetic credentials. They verify rejection of untrusted issuers and hostname mismatches, explicit private-CA trust, and plain MQTT connectivity. No certificate/private-key fixtures or real `.env` files are used.
 
 Document changed public behavior and declaration contracts at their owning boundary, including inputs, outputs, errors and side effects where they are not obvious. Existing lint/type checks do not prove documentation coverage. Keep imports, comments and intentional formatting conventions intact; scope fixes to the task.
 

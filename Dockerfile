@@ -4,7 +4,7 @@
 FROM node:lts-alpine AS build
 
 # Install build tools (needed for some deps)
-RUN apk add --no-cache python3 make g++
+RUN apk add --no-cache python3 make g++ openssl
 
 # Current Node LTS images do not bundle Yarn Classic.
 RUN npm install --global yarn@1.22.22
@@ -19,7 +19,8 @@ RUN yarn install --frozen-lockfile
 COPY . .
 
 # Build TypeScript -> JS
-RUN yarn build
+# Verify transport security with temporary certificates before bundling.
+RUN yarn test
 
 # Bundle into single JS file
 RUN yarn bundle
