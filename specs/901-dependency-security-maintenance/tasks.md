@@ -24,4 +24,9 @@ T3/T4 share the Node dependency graph and are validated as one coherent compatib
 ## Authorized TLS follow-up
 
 - [x] T6 Require MQTT TLS verification in `src/services/mqtt.ts`, add isolated transport regression tests and container validation, and document private-CA migration.
-- [ ] T7 Recheck the complete candidate graph and current-head CI, then merge PR #7 only with no remaining vulnerability findings; verify merge and clean up task branch.
+- [x] T7 Recheck the complete candidate graph and current-head CI, then merge PR #7 only with no remaining vulnerability findings; verify merge and clean up task branch.
+
+## Authorized PR/release follow-up
+
+- [x] T7 Replace the TypeScript-7-incompatible runner, add an execution regression test, validate installation/build/TLS/bundle/container/audit, and commit.
+- [ ] T8 Integrate superseded PR histories, merge after current-head CI, and publish/verify a new version through the existing workflow.

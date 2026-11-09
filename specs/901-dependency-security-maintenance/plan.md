@@ -19,3 +19,7 @@ Use documented local checks, clean immutable installs, relevant container/health
 ## TLS implementation boundary
 
 Set mqtt.connect rejectUnauthorized to true at the owning service boundary. Test the actual compiled service in isolated child processes against loopback MQTT/TLS servers. Verify untrusted issuer rejection, explicit private CA acceptance, hostname mismatch rejection and plain MQTT connectivity. Generate short-lived CA/server certificates with OpenSSL in a temporary directory; use an empty working directory and an explicit synthetic environment in child processes. Add yarn test to the container build gate and document process-start NODE_EXTRA_CA_CERTS configuration.
+
+## TypeScript 7 runner compatibility
+
+Replace ts-node with tsx 4.23.15 (stable, published more than 24 hours ago). Keep nodemon watching the same source files. Run type checking through the TypeScript CLI; tsx performs execution without the removed JavaScript compiler API. Add a subprocess regression test using the configured runner on a temporary typed TypeScript file, without loading application configuration or connecting to devices. Include it in the existing test/container gate. Merge superseded dependency branches without reverting the newer main dependency graph. Validate immutable Yarn installation, test, bundle, audit, Docker build and current-head CI before merge and release.

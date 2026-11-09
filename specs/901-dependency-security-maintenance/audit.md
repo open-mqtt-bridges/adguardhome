@@ -68,3 +68,9 @@ The user requested fixing the separately reported TLS finding in PR #7 and expli
 Regression proof exercises the actual compiled service against loopback servers in isolated processes. Before the fix, the untrusted-issuer and hostname-mismatch tests failed because the connection was accepted (2 of 4 tests failed). After the fix, all 4 tests pass: untrusted issuer rejection before MQTT credentials are sent, explicit private-CA acceptance, hostname-mismatch rejection, and plain MQTT connectivity. Test certificates/keys are generated with OpenSSL in a temporary directory and removed; no private keys or real runtime configuration are committed or loaded.
 
 `yarn test` builds the service and runs the regression suite. The Docker build gate invokes it, with OpenSSL installed only in the build stage. Clean frozen install, tests, bundle and complete dependency audit pass for the TLS candidate; container build and synthetic application smoke are also checked before delivery. No additional release or deployment is authorized by this follow-up.
+
+## TypeScript 7 follow-up and release candidate 1.0.1
+
+TypeScript 7.0.2 removes the JavaScript compiler API required by ts-node 10.9.2; the exact Dependabot head failed with `TypeError: Cannot read properties of undefined (reading 'fileExists')`. Replaced ts-node with tsx 4.23.15 and retained nodemon source watches. The configured runner now executes an isolated typed fixture. The compiler remains the type-check/build gate. The user explicitly authorized PR merges and new releases/deployments, superseding the original delivery boundary.
+
+Validation: isolated Yarn 1.22.22 frozen installation, TypeScript build, all five development-runner/TLS/plain-MQTT tests, ncc bundle, Docker build with base pull, and Yarn audit (zero findings) passed. No application configuration or device endpoints were used. Version 1.0.1 includes this runner migration and the previously merged strict MQTT TLS validation.

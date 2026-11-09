@@ -1,6 +1,6 @@
 {
   "name": "adguard-mqtt-bridge",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight Node.js service that connects your AdguardHome with MQTT.",
   "keywords": [
     "adguardhome",
@@ -8,7 +8,7 @@
     "bridge"
   ],
   "author": {
-    "name": "Tobias Wälde",
+    "name": "Tobias W\u00e4lde",
     "email": "tobias.waelde@gmail.com",
     "url": "https://tobiaswaelde.com"
   },
@@ -29,8 +29,8 @@
     "@vercel/ncc": "^0.45.0",
     "nodemon": "^3.1.14",
     "rimraf": "^6.1.4",
-    "ts-node": "^10.9.2",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2",
+    "tsx": "^4.23.15"
   },
   "dependencies": {
     "axios": "^1.21.0",
