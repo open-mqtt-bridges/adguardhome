@@ -17,3 +17,7 @@ All adopted updates require clean immutable installation, applicable local check
 ## Authorized TLS follow-up
 
 MQTTS must reject untrusted certificate chains and hostname mismatches. Explicit private-CA trust through NODE_EXTRA_CA_CERTS must work. Plain MQTT and documented topics/payloads remain unchanged. Synthetic test certificates are generated at test time; no private keys or real configuration are versioned. The user authorized merging PR #7 after all checks are green and no vulnerability findings remain.
+
+## Authorized release and dependency follow-up
+
+The user now authorizes merging all organization PRs, necessary compatibility fixes, and publishing/deploying new versions through the existing workflows. This supersedes the earlier no-release/no-deployment delivery boundary. Adopt TypeScript 7 only after replacing the incompatible development runner and proving the development command, build, bundle, and TLS tests. Preserve the MQTT and TLS contracts.

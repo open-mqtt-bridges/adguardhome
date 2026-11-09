@@ -8,5 +8,5 @@
     "build",
     "dist"
   ],
-  "exec": "ts-node src/index.ts"
+  "exec": "tsx src/index.ts"
 }
