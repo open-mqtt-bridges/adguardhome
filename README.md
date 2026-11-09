@@ -1,8 +1,8 @@
 # Adguard-MQTT Bridge
 
-![Docker Build](https://github.com/tobiaswaelde/adguard-mqtt-bridge/actions/workflows/test-build.yml/badge.svg)
-![Docker Deploy](https://github.com/tobiaswaelde/adguard-mqtt-bridge/actions/workflows/deploy.yml/badge.svg)
-![Version](https://img.shields.io/github/v/tag/tobiaswaelde/adguard-mqtt-bridge?label=version)
+![Docker Build](https://github.com/open-mqtt-bridges/adguardhome/actions/workflows/test-build.yml/badge.svg)
+![Docker Deploy](https://github.com/open-mqtt-bridges/adguardhome/actions/workflows/deploy.yml/badge.svg)
+![Version](https://img.shields.io/github/v/tag/open-mqtt-bridges/adguardhome?label=version)
 
 A lightweight Node.js service that connects your [Adguard Home](https://adguard.com/en/adguard-home/overview.html) with MQTT.
 
@@ -195,3 +195,6 @@ Enable or disable protection, then fetch status & publish to `${TOPIC}/status`.
 ## 📦 Changelog
 
 See the [CHANGELOG.md](./CHANGELOG.md) for details on what’s new in recent versions.
+## Contributing
+
+See the [development guide](docs/development.md) for the pinned toolchain, checks and Spec Kit usage, and the [organization contribution guide](https://github.com/open-mqtt-bridges/.github/blob/main/CONTRIBUTING.md) for pull requests.

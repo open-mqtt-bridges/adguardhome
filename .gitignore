@@ -10,3 +10,9 @@ dist/
 
 *.env
 !.env.example
+
+# Local runtime configuration and secrets
+.env
+.env.*
+!.env.example
+config/config.yml
