@@ -6,7 +6,7 @@
 
 ## Security coverage (US2)
 
-- [ ] T2 [US2] Verify settings and update `.github` scanner/Dependabot configuration. Depends on T1.
+- [x] T2 [US2] Verify settings and update `.github` scanner/Dependabot configuration. Depends on T1.
 
 ## Dependencies (US1)
 
