@@ -1,0 +1,11 @@
+# Only application sources and manifests belong in the image build context.
+.git
+node_modules
+build
+dist
+.agents
+.specify
+specs
+.env
+.env.*
+*.env
