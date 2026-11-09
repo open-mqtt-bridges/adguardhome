@@ -15,7 +15,7 @@
 
 ## Delivery (US3)
 
-- [ ] T5 [US3] Record clean-install, integration/audit/CI evidence in `audit.md`; open the issue-linked consolidated PR. Depends on T2 and T4.
+- [x] T5 [US3] Record clean-install, integration/audit/CI evidence in `audit.md`; open the issue-linked consolidated PR. Depends on T2 and T4.
 
 Execution follows the approved website-first repository order. Independent external metadata reads may run concurrently; commits remain scoped to tested implementation groups.
 
