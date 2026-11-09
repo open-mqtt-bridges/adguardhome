@@ -6,7 +6,7 @@ Base: `main` at `94c72eea6370db79d24db59223aa5ba8b32ce8da`. Checkout: `3-depende
 
 ## Design and constitution check
 
-No public API/schema/data-model changes. Compatibility, ownership, credential protection, documentation and verification principles apply. Update coupled runtime/framework packages together, then independently review tooling/documentation and native groups. NestJS target: 12.4.2; website Nuxt: 4.6.4 and @nuxt/eslint: 1.17.0. Other stable targets come from authoritative registry/action metadata at execution time. Preserve aliases, patches and trust settings unless a verified compatible replacement is required. Do not force TypeScript 7 across incompatible peers.
+No public API/schema/data-model changes. Compatibility, ownership, credential protection, documentation and verification principles apply. Update coupled runtime/framework packages together, then independently review tooling/documentation and native groups. NestJS target: 12.4.0 (12.4.2 deferred under the user-approved 24-hour policy); website Nuxt: 4.6.4 and @nuxt/eslint: 1.17.0. Other stable targets come from authoritative registry/action metadata at execution time. Preserve aliases, patches and trust settings unless a verified compatible replacement is required. Do not force TypeScript 7 across incompatible peers.
 
 ## Delivery
 
