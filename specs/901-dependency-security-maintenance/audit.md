@@ -17,11 +17,11 @@ Original declared versions, aliases, engines and overrides are preserved in `bas
 | `@vercel/ncc` (package.json) | `^0.38.3` | `^0.45.0` |
 | `nodemon` (package.json)     | `^3.1.10` | `^3.1.14` |
 | `rimraf` (package.json)      | `^6.0.1`  | `^6.1.4`  |
-| `typescript` (package.json)  | `^5.9.2`  | `^7.0.2`  |
+| `typescript` (package.json)  | `^5.9.2`  | `^6.0.3`  |
 
 ## Compatibility decisions
 
-- Envalid 9 requires Node >=22, is ESM-only and treats empty/whitespace strings as missing; examples already use non-empty placeholder credentials. TypeScript 7 requires explicit `rootDir: ./src/` to preserve build/index.js output placement. Yarn remains 1.22.22. The ncc bundle and synthetic MQTT/HTTP smoke pass on the existing current-LTS container. `nodemon/minimatch` is selectively updated; ws/follow-redirects are constrained to aged, fixed versions.
+- Envalid 9 requires Node >=22, is ESM-only and treats empty/whitespace strings as missing; examples already use non-empty placeholder credentials. TypeScript 6.0.3 retains the compiler API required by ts-node; explicit `rootDir: ./src/` preserves build/index.js output placement. Yarn remains 1.22.22. The ncc bundle and synthetic MQTT/HTTP smoke pass on the existing current-LTS container. `nodemon/minimatch` is selectively updated; ws/follow-redirects are constrained to aged, fixed versions.
 
 ## Release-age policy and deferred updates
 
@@ -54,3 +54,9 @@ PR: https://github.com/open-mqtt-bridges/adguardhome/pull/7; closes #3. Existing
 ## Hosted CI evidence
 
 All reported checks on implementation head `96a502b07b30b0b66e10945f3980c437b54bda17` completed without failures at 2026-11-09T13:23:15.934296+00:00. Deployment jobs were intentionally skipped on the PR. CodeQL PR analysis completed for the supported source language. This final documentation-only task update follows that successful implementation verification; the current PR checks remain authoritative before merge.
+
+## Development compiler compatibility follow-up
+
+A targeted development-runner check found that TypeScript 7 lacks the `ts.sys` API used by ts-node 10.9.2: `TypeError: Cannot read properties of undefined (reading 'fileExists')`. The production compiler/bundle checks alone did not exercise this consumer. TypeScript 7 is therefore deferred for this repository as well, and the compatible stable JavaScript compiler 6.0.3 is retained.
+
+The check using the actual project configuration compiles and executes an envalid import and a typed synthetic environment value through ts-node. It passes with TypeScript 6.0.3. Application build, ncc bundle, audit, isolated frozen installation, container build and synthetic MQTT/HTTP smoke are repeated for the corrected graph; current-head CI is authoritative for the follow-up. No watch process or real device/cloud configuration is used by the compiler smoke.
