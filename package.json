@@ -18,6 +18,7 @@
     "dev": "nodemon --config \"./nodemon.json\"",
     "prebuild": "rimraf build",
     "build": "tsc",
+    "test": "yarn build && node --test test/*.test.cjs",
     "prebundle": "yarn build && rimraf ./dist",
     "bundle": "ncc build build/index.js -o dist -m",
     "start": "node dist/index.js"

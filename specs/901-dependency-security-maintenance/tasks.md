@@ -20,3 +20,8 @@
 Execution follows the approved website-first repository order. Independent external metadata reads may run concurrently; commits remain scoped to tested implementation groups.
 
 T3/T4 share the Node dependency graph and are validated as one coherent compatibility update; independent Cargo and documentation groups receive separate commits. Current-head CI is recorded in the hosting PR and linked issue.
+
+## Authorized TLS follow-up
+
+- [x] T6 Require MQTT TLS verification in `src/services/mqtt.ts`, add isolated transport regression tests and container validation, and document private-CA migration.
+- [ ] T7 Recheck the complete candidate graph and current-head CI, then merge PR #7 only with no remaining vulnerability findings; verify merge and clean up task branch.

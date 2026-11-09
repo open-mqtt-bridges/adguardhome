@@ -60,3 +60,11 @@ All reported checks on implementation head `96a502b07b30b0b66e10945f3980c437b54b
 A targeted development-runner check found that TypeScript 7 lacks the `ts.sys` API used by ts-node 10.9.2: `TypeError: Cannot read properties of undefined (reading 'fileExists')`. The production compiler/bundle checks alone did not exercise this consumer. TypeScript 7 is therefore deferred for this repository as well, and the compatible stable JavaScript compiler 6.0.3 is retained.
 
 The check using the actual project configuration compiles and executes an envalid import and a typed synthetic environment value through ts-node. It passes with TypeScript 6.0.3. Application build, ncc bundle, audit, isolated frozen installation, container build and synthetic MQTT/HTTP smoke are repeated for the corrected graph; current-head CI is authoritative for the follow-up. No watch process or real device/cloud configuration is used by the compiler smoke.
+
+## Authorized MQTT TLS verification follow-up
+
+The user requested fixing the separately reported TLS finding in PR #7 and explicitly authorized merging after all checks pass and no vulnerability findings remain. The owning MQTT service now sets `rejectUnauthorized: true`, requiring a trusted certificate chain and matching hostname. Private-CA deployments use process-start `NODE_EXTRA_CA_CERTS`; the README documents the migration.
+
+Regression proof exercises the actual compiled service against loopback servers in isolated processes. Before the fix, the untrusted-issuer and hostname-mismatch tests failed because the connection was accepted (2 of 4 tests failed). After the fix, all 4 tests pass: untrusted issuer rejection before MQTT credentials are sent, explicit private-CA acceptance, hostname-mismatch rejection, and plain MQTT connectivity. Test certificates/keys are generated with OpenSSL in a temporary directory and removed; no private keys or real runtime configuration are committed or loaded.
+
+`yarn test` builds the service and runs the regression suite. The Docker build gate invokes it, with OpenSSL installed only in the build stage. Clean frozen install, tests, bundle and complete dependency audit pass for the TLS candidate; container build and synthetic application smoke are also checked before delivery. No additional release or deployment is authorized by this follow-up.
