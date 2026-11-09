@@ -1,0 +1,8 @@
+{
+  "base": "94c72eea6370db79d24db59223aa5ba8b32ce8da",
+  "runtime": null,
+  "packageManager": "yarn@1.22.22",
+  "manifests": {
+    "package.json": "{\n  \"name\": \"adguard-mqtt-bridge\",\n  \"version\": \"1.0.0\",\n  \"description\": \"A lightweight Node.js service that connects your AdguardHome with MQTT.\",\n  \"keywords\": [\n    \"adguardhome\",\n    \"mqtt\",\n    \"bridge\"\n  ],\n  \"author\": {\n    \"name\": \"Tobias W\u00e4lde\",\n    \"email\": \"tobias.waelde@gmail.com\",\n    \"url\": \"https://tobiaswaelde.com\"\n  },\n  \"private\": false,\n  \"license\": \"MIT\",\n  \"scripts\": {\n    \"dev\": \"nodemon --config \\\"./nodemon.json\\\"\",\n    \"prebuild\": \"rimraf build\",\n    \"build\": \"tsc\",\n    \"prebundle\": \"yarn build && rimraf ./dist\",\n    \"bundle\": \"ncc build build/index.js -o dist -m\",\n    \"start\": \"node dist/index.js\"\n  },\n  \"devDependencies\": {\n    \"@types/node\": \"^24.3.1\",\n    \"@types/signale\": \"^1.4.7\",\n    \"@vercel/ncc\": \"^0.38.3\",\n    \"nodemon\": \"^3.1.10\",\n    \"rimraf\": \"^6.0.1\",\n    \"ts-node\": \"^10.9.2\",\n    \"typescript\": \"^5.9.2\"\n  },\n  \"dependencies\": {\n    \"axios\": \"^1.11.0\",\n    \"dotenv\": \"^17.2.2\",\n    \"envalid\": \"^8.1.0\",\n    \"mqtt\": \"^5.14.1\",\n    \"signale\": \"^1.4.0\"\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"https://github.com/open-mqtt-bridges/adguardhome.git\"\n  },\n  \"homepage\": \"https://github.com/open-mqtt-bridges/adguardhome#readme\",\n  \"bugs\": {\n    \"url\": \"https://github.com/open-mqtt-bridges/adguardhome/issues\"\n  },\n  \"packageManager\": \"yarn@1.22.22\"\n}\n"
+  }
+}
